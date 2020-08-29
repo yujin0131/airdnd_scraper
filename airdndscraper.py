@@ -9,10 +9,6 @@ app = Flask("SuperScrapper")
 def home():
     return render_template("home.html")
 
-#@app.route("/loading")
-#def loading():
-#    return render_template("loading.html")
-
 @app.route("/scrape")
 def scrape():
     place = request.args.get('place')
@@ -23,7 +19,6 @@ def scrape():
     if place:
         accommodation_infos = get_accommodation_infos(Query)
         extract_detail(accommodation_infos)
-
     else:
         return redirect("/")
     return render_template("scrapepage.html", searchingBy=place, checkin = checkin, checkout = checkout, adults = adults)
@@ -38,9 +33,8 @@ def scrape_review():
     if place:
         accommodation_infos = get_accommodation_infos(Query)
         extract_more_review(accommodation_infos)
-
     else:
         return redirect("/")
-    return render_template("scrapepage.html", searchingBy=place)
+    return render_template("end.html", searchingBy=place)
 
 app.run(host="localhost")

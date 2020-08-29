@@ -63,9 +63,9 @@ def scrape_reviews(URL, room_idx, place):
         driver = webdriver.Chrome('C:/yujin_python/work/project/chromedriver')
         driver.implicitly_wait(3)
         driver.get(URL)
-        time.sleep(3)
+        time.sleep(5)
         driver.implicitly_wait(15)
-        scr1 = driver.find_element_by_xpath('/html/body/div[13]/section/div/div/div[3]/div/div/section/div/div[2]/div[1]')
+        scr1 = driver.find_element_by_xpath('/html/body/div[11]/section/div/div/div[3]/div/div/section/div/div[2]')
         driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", scr1)
 
         time.sleep(3)
